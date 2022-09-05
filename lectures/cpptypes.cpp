@@ -9,11 +9,26 @@ Learning C++ Types!!!
 
 using namespace std;
 
+const float pi = 3.1415926;
+const float earthGravity = -9.80665;
+
 int main() {
-    string fullName = "Jeremy Bergen";
+    
+
+    cout << "pi is: " << pi << endl;
 
     return 0;
 }
+
+    // string firstName, lastName;
+    // string fullName;
+
+    // firstName = "Jeremy";
+    // lastName = "Bergen";
+
+    // fullName = firstName + " " + lastName;
+
+    // cout << "Hello " << fullName << endl;
 
     // int numSeconds, secondsPerHour;
     // int total;
