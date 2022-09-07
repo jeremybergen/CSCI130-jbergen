@@ -9,24 +9,31 @@ Learning about cin and cout
 using namespace std;
 
 int main() {
-    int num1, num2;
-    char opp;
+    string fullName;
 
-    cout << "Please enter two numbers and an operator: ";
-    cin >> num1 >> num2 >> opp;
+    cout << "Please enter your full name: ";
+    getline(cin, fullName);
+    // cin >> fullName;
 
-    // cout << "Please enter another number: ";
-    // cin >> num2;
+    cout << "Hello " << fullName << endl;
 
-    cout << "num1: " << num1 << endl;
-    cout << "num2: " << num2 << endl;
-
-    cout << num1 << " - " << num2
-         << " = " << num1 - num2 << endl;
     return 0;
 }
 
+    // int num1, num2;
+    // char opp;
 
+    // cout << "Please enter two numbers and an operator: ";
+    // cin >> num1 >> num2 >> opp;
+
+    // // cout << "Please enter another number: ";
+    // // cin >> num2;
+
+    // cout << "num1: " << num1 << endl;
+    // cout << "num2: " << num2 << endl;
+
+    // cout << num1 << " - " << num2
+    //      << " = " << num1 - num2 << endl;
     // string firstName = "Jeremy";
     // cout << "Hello my name is Jeremy" << endl
     //      << "This is a second line" << endl 
