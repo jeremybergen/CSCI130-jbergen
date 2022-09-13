@@ -15,12 +15,12 @@ step 10: print area and perimeter
 
 using namespace std;
 
-void greetUser(string firstName);
+void greetUser(string);
 void promptName();
 double rectangleSide();
-double calcArea(double s1, double s2);
-double calcPerim(double s1, double s2);
-void printVals(double area, double perim, double side1, double side2);
+double calcArea(double, double);
+double calcPerim(double, double);
+void printVals(double, double, double, double);
 
 int main() {
     double side1, side2;
