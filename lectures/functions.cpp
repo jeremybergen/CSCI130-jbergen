@@ -8,35 +8,51 @@ C++ Functions...Cool...
 
 using namespace std;
 
-void sayHello();
-void sayGoodbye();
-int addNums(int, int);
+void someFunc(int&);
 
 int main() {
+    int myNum;
+
+    myNum = 42;
+
+    cout << "myNum is: " << &myNum << endl;
+    someFunc(myNum);
+    // cout << "myNum is: " << myNum << endl;
+
     // sayGoodbye();
-    cout << "42 + 15 = " << addNums(42, 15) << endl;
+    // cout << "42 + 15 = " << addNums(42, 15) << endl;
 
     return 0;
 }
 
-int addNums(int n1, int n2) {
-    int total;
-
-    total = n1 + n2;
-
-    return total;
+void someFunc(int &bob) {
+    cout << "myNum is: " << &bob << endl;
+    bob++;
+    // myNum = myNum + 1;
+    // myNum += 1;
 }
 
-void sayHello() {
-    cout << "Hello" << endl;
-    sayGoodbye();
-}
+// int addNums(int n1, int n2) {
+//     int total;
 
-void sayGoodbye() {
-    cout << "Goodbye" << endl;
-    sayHello();
-}
+//     total = n1 + n2;
 
+//     return total;
+// }
+
+// void sayHello() {
+//     cout << "Hello" << endl;
+//     sayGoodbye();
+// }
+
+// void sayGoodbye() {
+//     cout << "Goodbye" << endl;
+//     sayHello();
+// }
+
+// void sayHello();
+// void sayGoodbye();
+// int addNums(int, int);
 // int addTwo() {
 //     int num1;
     

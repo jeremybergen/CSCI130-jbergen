@@ -12,26 +12,34 @@ step 10: print area and perimeter
 */
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <cassert>
 
 using namespace std;
 
 void greetUser(string);
 void promptName();
-double rectangleSide();
-double calcArea(double, double);
+void rectangleSide(double&, double&);
+void calcArea(const double&, const double&, double&);
 double calcPerim(double, double);
 void printVals(double, double, double, double);
+void tests();
+
+const float epsilon = 1e-5;
 
 int main() {
     double side1, side2;
     double area, perim;
 
+    tests();
+
     promptName();
 
-    side1 = rectangleSide();
-    side2 = rectangleSide();
+    // side1 = rectangleSide();
+    // side2 = rectangleSide();
+    rectangleSide(side1, side2);
 
-    area = calcArea(side1, side2);
+    calcArea(side1, side2, area);
 
     perim = calcPerim(side1, side2);
 
@@ -39,6 +47,36 @@ int main() {
 
     return 0;
 }
+
+void tests() {
+
+    assert(calcPerim(2, 4) == 12);
+    assert(calcPerim(42, 15) == 114);
+    assert(calcPerim(1, 3) == 8);
+
+    double area;
+    calcArea(42, 15, area);
+    assert(area == 630);
+
+    calcArea(2, 4, area);
+    assert(area == 8);
+
+    calcArea(7.500000045, 4.327, area);
+    double expected = 32.4525;
+    assert(abs(area - expected) <= epsilon);
+
+    cout << "All test cases passed" << endl;
+}
+
+// step 8: calculate area
+void calcArea(const double &s1, const double &s2, double &area) {
+    // double area;
+
+    area = s1 * s2;
+
+    // return area;
+}
+
 
 //step 2
 void greetUser(string firstName) {
@@ -57,23 +95,18 @@ void promptName() {
 }
 
 //step 7 prompt for the sides of a rectangle
-double rectangleSide() {
-    double asdf;
+void rectangleSide(double &s1, double &s2) {
+    // double asdf;
 
     cout << "Please enter a side of the rectangle: ";
-    cin >> asdf;
+    cin >> s1;
 
-    return asdf;
+    cout << "Please enter the other side of the rectangle: ";
+    cin >> s2;
+
+    // return asdf;
 }
 
-// step 8: calculate area
-double calcArea(double s1, double s2) {
-    double area;
-
-    area = s1 * s2;
-
-    return area;
-}
 
 // step 9: calculate the perimeter
 double calcPerim(double s1, double s2) {
