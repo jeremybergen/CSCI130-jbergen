@@ -6,14 +6,121 @@ all about the loops
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
+    int row = 1;
+    int tableSize = 25;
+    int padding = 5;
 
-    for (float i=0; i<1; i+=.1) {
-        cout << i << endl;
+    cout << setw(5) << "";
+    while(row <= tableSize) {
+        cout << setw(4) << row;
+        row++;
     }
+    cout << endl;
+    cout << setw(tableSize*padding+5) << setfill('-') << "" << endl;
+    cout << setfill(' ');
+
+    row = 1;
+
+    while(row <= tableSize) {
+        int column = 1;
+        cout << setw(padding) << row << "|";
+        while (column <= tableSize) {
+            cout << setw(padding) << row * column;
+            column++;
+        }
+        cout << endl;
+        row++;
+    }
+
+    // int x = 1;
+    // int fieldWidth = 15;
+
+    // cout << right << setw(fieldWidth) << "x" 
+    //      << setw(fieldWidth) << "log(x)" 
+    //      << setw(fieldWidth) << "log2(x)" 
+    //      << setw(fieldWidth) << "log10(x)" << endl;
+    // cout << setw(fieldWidth*4) << setfill('-') << "" << endl;
+    // cout << setfill(' ');
+
+    // cout << fixed << setprecision(4);
+
+    // while(x <= 10) {
+    //     cout << right << setw(fieldWidth) << x 
+    //          << setw(fieldWidth) << log(x) 
+    //          << setw(fieldWidth) << log2(x) 
+    //          << setw(fieldWidth) << log10(x) << endl;
+    //     x++;
+    // }
+
+    // for(int x=1; x <= 10; x++) {
+    //     cout << right << setw(fieldWidth) << x 
+    //          << setw(fieldWidth) << log(x) 
+    //          << setw(fieldWidth) << log2(x) 
+    //          << setw(fieldWidth) << log10(x) << endl;
+    // }
+
+    // cout << "x\tlog(x)\tlog2(x)\tlog10(x)\n";
+
+    // int counter=0;
+    // int j = 10;
+
+    // do {
+    //     cout << "while: Hello" << endl;
+    //     counter++;
+    // } while(counter > 10);
+
+    // while(counter < 10 && j > 0) {
+    //     counter++;
+    //     j--;
+    //     // if (counter%2 == 0) {
+    //     //     continue;
+    //     // }        
+        
+    //     cout << counter << " + " << j 
+    //          << " = " << counter + j << endl;
+
+    //     // cout << counter << ": Hello" << endl;
+
+    // }
+
+    // counter = 0;
+    // for ( ; ; ) {
+    //     cout << "for: Hello" << endl;
+    //     counter++;
+    //     if (counter >= 10) {
+    //         break;
+    //     }
+    // }
+
+    // for (int i : {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) {
+    //     cout << i << "-Hello" << endl;
+    // }
+    // for(int i=0; i<10; i++) {
+    //     cout << i << "-Hello" << endl;
+    // }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+    // for (float i=0; i<1; i+=.1) {
+    //     cout << i << endl;
+    // }
     // string firstName = "JEREMY";
 
     // for (int i=0; i<6; i++) {
@@ -109,6 +216,3 @@ int main(int argc, char *argv[]) {
     // // x = x - 1
     // cout << --x << endl;
     // cout << x << endl;
-
-    return 0;
-}
