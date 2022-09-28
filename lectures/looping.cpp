@@ -11,32 +11,84 @@ all about the loops
 
 using namespace std;
 
+void printHeader(int, int);
+void printTable(int, int);
+int promptTableSize();
+
 int main(int argc, char *argv[]) {
-    int row = 1;
-    int tableSize = 25;
+    int tableSize = 12;
     int padding = 5;
 
-    cout << setw(5) << "";
-    while(row <= tableSize) {
-        cout << setw(4) << row;
-        row++;
+    tableSize = promptTableSize();
+
+    printHeader(padding, tableSize);
+
+    printTable(padding, tableSize);
+
+    return 0;
+}
+
+int promptTableSize() {
+    int tableSize;
+    cout << "What size of table should we print? ";
+    cin >> tableSize;
+
+    return tableSize;
+}
+
+void printHeader(int padding, int tableSize) {
+    cout << setw(padding+1) << "";
+    for (int i = 1; i <= tableSize; i++) {
+        cout << setw(padding) << i;
     }
+
     cout << endl;
-    cout << setw(tableSize*padding+5) << setfill('-') << "" << endl;
+    cout << setw(tableSize*padding+6) 
+         << setfill('-') << "" << endl;
+
     cout << setfill(' ');
 
-    row = 1;
+}
 
-    while(row <= tableSize) {
-        int column = 1;
-        cout << setw(padding) << row << "|";
-        while (column <= tableSize) {
-            cout << setw(padding) << row * column;
-            column++;
+void printTable(int padding, int tableSize) {
+    for (int i = 1; i <= tableSize; i++) {
+        cout << setw(padding) << i << "|";
+        for (int j = 1; j <= tableSize; j++) {
+            cout << setw(padding) << i * j;
         }
         cout << endl;
-        row++;
     }
+}
+
+
+
+
+
+
+
+
+
+    // cout << setw(padding+1) << "";
+    // while(row <= tableSize) {
+    //     cout << setw(padding) << row;
+    //     row++;
+    // }
+    // cout << endl;
+    // cout << setw(tableSize*padding+6) << setfill('-') << "" << endl;
+    // cout << setfill(' ');
+
+    // row = 1;
+
+    // while(row <= tableSize) {
+    //     int column = 1;
+    //     cout << setw(padding) << row << "|";
+    //     while (column <= tableSize) {
+    //         cout << setw(padding) << row * column;
+    //         column++;
+    //     }
+    //     cout << endl;
+    //     row++;
+    // }
 
     // int x = 1;
     // int fieldWidth = 15;
@@ -104,18 +156,6 @@ int main(int argc, char *argv[]) {
     // for(int i=0; i<10; i++) {
     //     cout << i << "-Hello" << endl;
     // }
-
-    return 0;
-}
-
-
-
-
-
-
-
-
-
 
 
     // for (float i=0; i<1; i+=.1) {
