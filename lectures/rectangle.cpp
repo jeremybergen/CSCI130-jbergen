@@ -17,10 +17,42 @@ step 10: print area and perimeter
 
 using namespace std;
 
+void promptName(string*);
+void greetUser(string*);
+void promptSides(double*, double*);
+
 int main() {
-    // grabbed https://stackoverflow.com/questions/903221/press-enter-to-continue
-    cout << "Press enter to exit\n";
-    cin.ignore();
+    string *myName = new string();
+    double *side1 = new double;
+    double *side2 = new double();
+
+    promptName(myName);
+    greetUser(myName);
+
+    delete myName;
+    return 0;
+}
+
+void promptSides(double *side1, double * side2) {
+    cout << ""
+}
+
+void promptName(string* firstName) {
+    cout << "Please enter your first name: ";
+    getline(cin, *firstName);
+}
+
+void greetUser(string* name) {
+    cout << "Welcome to my rectangle calculator, " 
+         << *name << endl;
+}
+
+
+
+
+    // // grabbed https://stackoverflow.com/questions/903221/press-enter-to-continue
+    // cout << "Press enter to exit\n";
+    // cin.ignore();
     // string fullName;
     // unsigned int side1, side2;
     // unsigned int area, perimeter;
@@ -58,5 +90,3 @@ int main() {
     //      << " and a perimeter of " << perimeter << endl;
 
     // // cout << area << endl << perimeter << endl;
-    // return 0;
-}
