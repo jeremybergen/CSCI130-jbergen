@@ -21,20 +21,63 @@ void promptName(string*);
 void greetUser(string*);
 void promptSides(double*, double*);
 
+template <class T1, typename type2>
+T1 calcArea(T1*, type2*);
+
+double* calcPerim(double*, double*);
+void printResults(double*, double*, double*, double*);
+
 int main() {
     string *myName = new string();
     double *side1 = new double;
     double *side2 = new double();
+    double *area = new double();
+    double *perimeter = NULL;
 
     promptName(myName);
     greetUser(myName);
+    promptSides(side1, side2);
+    *area = calcArea<double, double>(side1, side2);
+
+    // cout << "Inside main" << endl;
+    // cout << "DEBUG: *perimeter: " << perimeter << endl;
+    perimeter = calcPerim(side1, side2);
+    // cout << "Inside main" << endl;
+    // cout << "DEBUG: *perimeter: " << perimeter << endl;
+    printResults(side1, side2, area, perimeter);
 
     delete myName;
+    delete side1;
+    delete side2;
+    delete area;
+    delete perimeter;
     return 0;
 }
 
+template <class T1, typename type2>
+T1 calcArea(T1 *s1, type2 *s2) {
+    T1 area = *s1 * *s2;
+    return area;
+}
+
+void printResults(double *s1, double *s2, double *area, double *perimeter) {
+    printf("The rectangle with sides %.2f and %.2f\nHas an area of %.2f\nand a perimeter of %.2f\n", *s1, *s2, *area, *perimeter);
+}
+
+double* calcPerim(double *s1, double *s2) {
+    double *perimeter = new double();
+
+    *perimeter = 2 * (*s1 + *s2);
+    // cout << "Inside calcPerim" << endl;
+    // cout << "DEBUG: *perimeter: " << perimeter << endl;
+
+    return perimeter;
+}
+
+
 void promptSides(double *side1, double * side2) {
-    cout << ""
+    cout << "Please enter two sides of a rectangle: ";
+    cin >> *side1 >> *side2;
 }
 
 void promptName(string* firstName) {
