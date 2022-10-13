@@ -8,24 +8,156 @@ All About Arrays
 
 using namespace std;
 
-using big_int = long long int;
-typedef long long int large_int;
+// using big_int = long long int;
+// typedef long long int large_int;
+
+template <class T1>
+void promptNumbers(T1*, int);
+
+template <class T1>
+void printArray(T1*, int);
+
+template <class T1>
+void swapem(T1*, int, int);
+
+template <class T1>
+void bubbleSort(T1*, int);
 
 int main(int argc, char *argv[]) {
+    int arrSize;
+    
+
+    cout << "Please enter the number of elements: ";
+    cin >> arrSize;
+
+    long *nums = new long[arrSize];
+
+    promptNumbers<long>(nums, arrSize);
+
+    printArray<long>(nums, arrSize);
+    cout << "Sorting: " << endl;
+
+    bubbleSort<long>(nums, arrSize);
+
+    return 0;
+}
+
+template <class T1>
+void bubbleSort(T1 *numbers, int arrSize) {
+    bool swapped;
+    for (size_t i = 0; i < arrSize; i++) {
+        swapped = false;
+        // cout << "DEBUG: i: " << i << endl;
+        for (size_t j = 0; j < arrSize-i-1; j++) {
+            // cout << "DEBUG: j: " << j << endl;
+            if(numbers[j] > numbers[j+1]) {
+                swapem<T1>(numbers, j, j+1);
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+        }
+        printArray<T1>(numbers, arrSize);
+    }
+
+}
+
+template <class T1>
+void swapem(T1 *numbers, int idx1, int idx2) {
+    T1 tmp = numbers[idx2];
+    numbers[idx2] = numbers[idx1];
+    numbers[idx1] = tmp;
+}
+
+template <class T1>
+void printArray(T1 *numbers, int arrSize) {
+    for(size_t i = 0; i < arrSize; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+}
+
+template <class T1>
+void promptNumbers(T1 *numbers, int arrSize) {
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Please enter a number: ";
+        cin >> numbers[i];
+    }
+}
+
+
+
+
+
+    // swapem(nums, 0, 3);
+    // printArray(nums, arrSize);
+
+    // int *nums;
+
+    // nums = promptNumbers(5);
+
+    // // int nums[5];
+    // // int *nums2 = new int[5];
+
+    // // promptNumbers(nums2, 5);
+
+    // for (size_t i = 0; i < 5; i++) {
+    //     cout << "nums[" << i << "]: " << nums[i] << endl;
+    // }
+
+    // // int nums[10];
+    // // int moreNums[10];
+    // int *nums = new int[10];
+    // int *moreNums = new int[10];
+
+    // for (size_t i = 0; i < 10; i++) {
+    //     nums[i] = i * 10;
+    //     cout << &nums[i] << endl;
+    // }
+
+    // for (size_t i = 0; i < 10; i++) {
+    //     cout << &moreNums[i] << endl;
+    // }
+
+    // moreNums = nums;
+
+    // cout << "After changing pointers: " << endl;
+    // for (size_t i = 0; i < 10; i++) {
+    //     nums[i] = i * 10;
+    //     cout << &nums[i] << endl;
+    // }
+
+    // for (size_t i = 0; i < 10; i++) {
+    //     cout << &moreNums[i] << endl;
+    // }
+    // // for (size_t i = 0; i < 10; i++) {
+    // //     moreNums[i] = nums[i];
+    // // }
+
+    // for (size_t i = 0; i < 10; i++) {
+    //     // cout << "nums[" << i << "]: " << moreNums[i] << endl;
+    // }
+
+
+
+
+
+
     // int nums[] = {42, 15, -9, 9000, -14323};
     // unsigned long arrSize = 4000000000/sizeof(int);
-    size_t arrSize = 5;
-    int *nums = new int[arrSize];
-    int *nums2 = new int[arrSize];
+    // size_t arrSize = 5;
+    // int *nums = new int[arrSize];
+    // int *nums2 = new int[arrSize];
 
-    nums[0] = 42;
+    // nums[0] = 42;
 
-    cout << "&nums[0]: " << &nums[0] << endl;
-    cout << "&nums2[0]: " << &nums2[0] << endl;
-    nums2 = nums;
+    // cout << "&nums[0]: " << &nums[0] << endl;
+    // cout << "&nums2[0]: " << &nums2[0] << endl;
+    // nums2 = nums;
 
-    cout << "&nums[0]: " << &nums[0] << endl;
-    cout << "&nums2[0]: " << &nums2[0] << endl;
+    // cout << "&nums[0]: " << &nums[0] << endl;
+    // cout << "&nums2[0]: " << &nums2[0] << endl;
     // int *nums = new int[arrSize];
 
     // big_int num1;
@@ -101,5 +233,3 @@ int main(int argc, char *argv[]) {
     // nums[5] = -10;
     // cout << "nums[5]: " << nums[5] << endl;
 
-    return 0;
-}
