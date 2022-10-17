@@ -23,23 +23,81 @@ void swapem(T1*, int, int);
 template <class T1>
 void bubbleSort(T1*, int);
 
+void printBoard(char[][3], int);
+
 int main(int argc, char *argv[]) {
-    int arrSize;
+    // int numbers[5][3] = {};
+    // int *ptr;
+    char board[3][3] = {};
+
+    board[0][0] = 'X';
+    board[0][2] = 'O';
+    board[1][0] = 'O';
+    board[1][1] = 'X';
+    board[2][0] = 'O';
+    board[2][2] = 'X';
+
+    printBoard(board, 3);
+
+    // for (size_t i = 0; i < 5; i++) {
+    //     for (size_t j = 0; j < 3; j++) {
+    //         numbers[i][j] = i+j;
+    //     }
+    // }
+
+    // cout << numbers << endl;
+    // cout << numbers[0] << endl;
+    // cout << &numbers[0][0] << endl;
+
+    // ptr = &numbers[0][0];
+
+    // for (size_t i = 0; i < 15; i++) {
+    //     cout << *ptr << endl;
+    //     ptr++;
+    // }
+    // ptr++;
+    // cout << &numbers << endl;
+    // cout << &numbers[0] << endl;
+
+
+    // cout << endl;
+    // numbers[0][0] = 42;
+    // numbers[1][1] = 24;
+    // int arrSize;
     
 
-    cout << "Please enter the number of elements: ";
-    cin >> arrSize;
+    // cout << "Please enter the number of elements: ";
+    // cin >> arrSize;
 
-    long *nums = new long[arrSize];
+    // long *nums = new long[arrSize];
 
-    promptNumbers<long>(nums, arrSize);
+    // promptNumbers<long>(nums, arrSize);
 
-    printArray<long>(nums, arrSize);
-    cout << "Sorting: " << endl;
+    // printArray<long>(nums, arrSize);
+    // cout << "Sorting: " << endl;
 
-    bubbleSort<long>(nums, arrSize);
+    // bubbleSort<long>(nums, arrSize);
 
     return 0;
+}
+
+void printBoard(char board[][3], int arrSize) {
+    for(size_t i = 0; i < 3; i++) {
+        for(size_t j = 0; j < 3; j++) {
+            if (board[i][j] == 0) {
+                cout << " ";
+            }
+            cout <<  board[i][j];
+            if (j != 2) {
+                cout << "|";
+            }
+        }
+        
+        cout << endl;
+        if (i != 2) {
+            cout << "-----" << endl;
+        }
+    }
 }
 
 template <class T1>
