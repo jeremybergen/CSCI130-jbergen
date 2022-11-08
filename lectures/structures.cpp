@@ -16,10 +16,10 @@ struct someStruct {
     string someChar;
 };
 
-template <class T1, class T2>
+// template <class T1, class T2>
 struct Points {
-    T1 x;
-    T2 y;
+    int x;
+    int y;
 };
 
 // void promptXY(Points&);
