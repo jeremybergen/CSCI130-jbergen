@@ -1,16 +1,22 @@
+%{
+myPick = menu("Pick an option", "Option1", "Option2", "Option3");
+
+disp(myPick)
+%}
+%{
 num1 = input("Please enter a letter: ", 's');
 
 switch(num1)
     case "Hello"
         disp("You entered A")
-    case 'B'
+    case {'B', 'b'}
         disp("You entered B")
     case "42"
         disp("You entered 42")
     otherwise
         disp("You entered something else")
 end
-
+%}
 %{
 if num1 == 0
     disp("Your number is zero")
