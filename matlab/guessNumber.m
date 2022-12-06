@@ -6,6 +6,51 @@ Algorithm steps for guessNumber
 3)
 4) profit
 %}
+
+winState = game();
+if winState == 1
+    disp("You won")
+else
+    disp("You lost")
+end
+
+function winState = game()
+    randNum = randomNumber();
+    for i = 1:6
+        playerNumber = readNumber();
+        checkGuessAnswer = checkGuess(playerNumber, randNum);
+        if checkGuessAnswer == -1
+            %do something
+        elseif checkGuessAnswer == 2
+            %do something else
+        else
+            %numbers are the same
+            winState = 1;
+            break
+        end
+    end
+    winState = 0;
+end
+
+function checkGuessAnswer = checkGuess(playerGuess, randNum)
+end
+
+function playerNumber = readNumber()
+end
+
+function randNum = randomNumber()
+end
+
+function greetPlayer(playerName)
+end
+
+function playerName = promptName()
+end
+
+
+
+%{ 
+
 playerName = promptName();
 myNumber = randomNumber();
 fprintf("Your secret number is: %d\n", myNumber)
@@ -46,3 +91,5 @@ function varargout = newFunction(varargin)
     varargout{1} = 42;
     varargout{2} = 15;
 end
+
+%}
