@@ -9,27 +9,88 @@ using namespace std;
 
 int main()
 {
-    int number1;
+    string somePhrase;
 
-    number1 = 2147483647;
+    somePhrase = "This is a \"phrase\" \fthat \\\\I'm typing.\n";
+    // somePhrase = "a\t\tb\n";
 
-    cout << number1 << endl;
+    // CRLF
 
-    number1 = number1 - 1;
+    cout << somePhrase;
 
-    cout << number1 << endl;
+    // somePhrase = "aa\t\tb\n";
 
-    number1 -= 1;
+    // cout << somePhrase;
 
-    cout << number1 << endl;
+    // somePhrase = "aaa\t\tb\n";
 
-    number1--;
+    // cout << somePhrase;
 
-    cout << number1 << endl;
+    // somePhrase = "aaaa\t\tb\n";
 
-    --number1;
+    // cout << somePhrase;
 
-    cout << number1 << endl;
+    // somePhrase = "aaaaa\t\tb\n";
+
+    // cout << somePhrase;
+
+    // somePhrase = "aaaaaaa\t\tb\n";
+
+    // cout << somePhrase;
+
+    // somePhrase = "aaaaaaaa\t\tb\n";
+
+    // cout << somePhrase;
+    // string fName;
+
+    // cout << "What is your name? ";
+
+    // // cin >> fName >> lName;
+    // getline(cin, fName);
+
+    // cout << "Welcome " << fName 
+    //      << " to our program." << endl;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // int number1;
+
+    // number1 = 2147483647;
+
+    // cout << number1 << endl;
+
+    // number1 = number1 - 1;
+
+    // cout << number1 << endl;
+
+    // number1 -= 1;
+
+    // cout << number1 << endl;
+
+    // number1--;
+
+    // cout << number1 << endl;
+
+    // --number1;
+
+    // cout << number1 << endl;
     // cout << sizeof(string) << endl;
     // string str1;
     // string str2;
@@ -83,5 +144,3 @@ int main()
 
     // cout << number1 << endl;
     //cout << "Hello World" << endl;
-    return 0;
-}
