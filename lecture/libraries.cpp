@@ -5,11 +5,48 @@ Libraries
 */
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <cstdio>
+#include <cassert>
+#include <string>
+#include <random>
 
 using namespace std;
 
 int main()
 {
+    srand(rand());
+    cout << (rand()%100)+1 << endl;
+    // string phrase;
+
+    // phrase = "This is a sentence.";
+
+    // cout << "The length of our phrase is: " << phrase.length() << endl;
+
+    // phrase.append(" And this is another sentence.");
+
+    // cout << "The length of our phrase is: " << phrase.length() << endl;
+
+    // phrase = phrase + " Yet a third sentence.";
+
+    // cout << phrase << endl;
+    // float n1, n2;
+    // float sum;
+
+    // cout << "Enter number 1: ";
+    // cin >> n1;
+
+    // cout << "Enter number 2: ";
+    // cin >> n2;
+
+    // sum = n1 + n2;
+
+    // cout << n1 << " + " << n2 << " = " << sum << endl;
+    // printf("%.2f + %.2f = %.2f\n", n1, n2, sum);
+    // double someNumber;
+
+    // someNumber = atof("42.a23, 2");
+    // cout << someNumber << endl;
     // int numSeconds;
     // int origSeconds;
     // int numMinutes;
