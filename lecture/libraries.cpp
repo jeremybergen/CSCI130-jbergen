@@ -6,17 +6,67 @@ Libraries
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
-#include <cstdio>
+// #include <cstdio>
 #include <cassert>
 #include <string>
 #include <random>
+#include <cctype>
+#include <iomanip>
+// #include <cstdio>
 
 using namespace std;
 
 int main()
 {
-    srand(rand());
-    cout << (rand()%100)+1 << endl;
+    cout << boolalpha;
+    cout << (1 == 1) << endl;
+    cout << noboolalpha;
+    cout << (1 != 1) << endl;
+    cout << (1 < 1) << endl;
+    cout << (1 <= 1) << endl;
+    cout << (1 > 1) << endl;
+    cout << (1 >= 1) << endl;
+
+    // int nameW, titleW, positionW;
+
+    // nameW = 17;
+    // titleW = 25;
+    // positionW = 18;
+
+    // cout << left;
+    // cout << setw(nameW) << "Name" << setw(titleW) << "Title" << setw(positionW) << "Position" << endl;
+    // // cout << "===============================================" << endl;
+    
+    // cout << setfill('=');
+    // cout << setw(nameW + titleW + positionW) << "" << endl;
+    // cout << setfill(' ');
+    
+    // cout << setw(nameW) << "Jeremy" << setw(titleW) << "Master of the Universe" << setw(positionW) << "All Seeing" << endl;
+    // cout << setw(nameW) << "Steve" << setw(titleW) << "Court Jester" << setw(positionW) << "Fool" << endl;
+    // cout << setw(nameW) << "Doofenschmirtz" << setw(titleW) << "Accountant" << setw(positionW) << "Head Accountant" << endl;
+    // cout << right;
+
+
+
+
+    // cout.setf(ios::fixed, ios::floatfield);
+    // cout << setprecision(2) << 42.12721321 << endl;
+    // // cout << "\tName" << "\tTitle" << "\tPosition" << endl;
+    
+    
+    
+    // cout << "Please press enter to quit." << endl;
+    // cin.get();
+    // cin.ignore(1000, '\n');
+    // getchar();
+    
+    
+    // cout << setw(10) << "HelloWorld!!!!" << endl;
+    // char someCh = 'a';
+
+    // cout << (char)tolower(someCh) << endl;
+    // srand(rand());
+    // cout << (rand()%100)+1 << endl;
     // string phrase;
 
     // phrase = "This is a sentence.";
