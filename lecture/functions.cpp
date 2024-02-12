@@ -7,10 +7,139 @@ Functions
 
 using namespace std;
 
+// void sayGoodbye();
+// void sayHello();
+
+template <class T1, class T2, class T3>
+T1 addNums(T2, T3);
+
+// int addNums(int, int);
+// float addNums(float, float);
+// float addNums(int, float);
+// float addNums(float, int);
+// int subNums(int, int);
+// int multiplyNums(int, int);
+// float avgNums(int, int);
+
+int main()
+{
+    float num1;
+    int num2;
+    float result;
+
+    cout << "Enter two numbers separated by a space: ";
+    cin >> num1 >> num2;
+
+    result = addNums<float, float, int>(num1, num2);
+    cout << num1 << " + " << num2 << " = " << result << endl;
+    // sayHello();
+    // sayGoodbye();
+    return 0;
+}
+
+template <class T1, class T2, class T3>
+T1 addNums(T2 n1, T3 n2)
+{
+    return n1 + n2;
+}
+
+// int addNums(int n1, int n2)
+// {
+//     cout << "inside int function" << endl;
+//     return n1 + n2;
+// }
+
+// float addNums(float n1, float n2)
+// {
+//     cout << "inside float function" << endl;
+//     return n1 + n2;
+// }
+
+// float addNums(int n1, float n2)
+// {
+//     cout << "inside int/float function" << endl;
+//     return n1 + n2;
+// }
+
+// float addNums(float n1, int n2)
+// {
+//     cout << "inside int/float function" << endl;
+//     return n1 + n2;
+// }
+
+// int subNums(int n1, int n2)
+// {
+
+// }
+// int multiplyNums(int bob, int steve)
+// {
+
+// }
+// float avgNums(int starwars, int startrek)
+// {
+
+// }
+
+
 
 // void sayHello()
 // {
-//     cout << "Hello World" << endl;
+//     cout << "Hello" << endl;
+//     sayGoodbye();
+// }
+
+// void sayGoodbye()
+// {
+//     cout << "Goodbye" << endl;
+//     sayHello();
+// }
+
+
+
+
+
+
+
+
+
+
+    // sayHello("Jeremy");
+    // int answer;
+    // int num1, num2;
+
+    // cout << "Please enter two numbers separated by a space: ";
+    // cin >> num1 >> num2;
+
+    // answer = addNums(num1, num2, "", ' ');
+    // cout << num1 << " + " << num2 << " = " << answer << endl;
+    // cout << "Press enter to quit";
+    // cin.get();
+    // cin.get();
+
+    // int result;
+    // result = addToNumber();
+    // cout << "addToNumber: " << result << endl;
+
+    // result = addToNumber();
+    // cout << "someNumber: " << result << endl;
+    // sayHello();
+    // sayHello();
+    // sayHello();
+    // sayHello();
+    // sayHello();
+    // string someStr;
+    // getline(cin, someStr);
+
+
+
+
+
+// void sayHello(string name)
+// {
+//     string lName;
+//     cout << "Enter your last name: ";
+//     cin >> lName;
+//     cout << "Hello " << name << " " << lName << endl;
 // }
 
 // int addToNumber()
@@ -41,37 +170,11 @@ using namespace std;
 //     return "Jeremy";
 // }
 
-int addNums(int num1, int num2, string name, char someCh)
-{
-    int result;
-    result = num1 + num2;
-    num1 = 10000;
-    num2 = 20000;
-    return result;
-}
-
-int main()
-{
-    int answer;
-    int num1, num2;
-
-    cout << "Please enter two numbers separated by a space: ";
-    cin >> num1 >> num2;
-
-    answer = addNums(num1, num2, "", ' ');
-    cout << num1 << " + " << num2 << " = " << answer << endl;
-    // int result;
-    // result = addToNumber();
-    // cout << "addToNumber: " << result << endl;
-
-    // result = addToNumber();
-    // cout << "someNumber: " << result << endl;
-    // sayHello();
-    // sayHello();
-    // sayHello();
-    // sayHello();
-    // sayHello();
-    // string someStr;
-    // getline(cin, someStr);
-    return 0;
-}
+// int addNums(int num1, int num2, string name, char someCh)
+// {
+//     int result;
+//     result = num1 + num2;
+//     num1 = 10000;
+//     num2 = 20000;
+//     return result;
+// }
