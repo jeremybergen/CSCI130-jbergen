@@ -10,8 +10,8 @@ using namespace std;
 // void sayGoodbye();
 // void sayHello();
 
-template <class T1, class T2, class T3>
-T1 addNums(T2, T3);
+// template <class T1, class T2, class T3>
+// T1 addNums(T2, T3);
 
 // int addNums(int, int);
 // float addNums(float, float);
@@ -21,27 +21,62 @@ T1 addNums(T2, T3);
 // int multiplyNums(int, int);
 // float avgNums(int, int);
 
+void printNums(int&, int&);
+// void getNums(int&, int&);
+
 int main()
 {
-    float num1;
-    int num2;
-    float result;
+    int num1 = 0, num2 = 0;
 
-    cout << "Enter two numbers separated by a space: ";
-    cin >> num1 >> num2;
+    // getNums(num1, num2);
 
-    result = addNums<float, float, int>(num1, num2);
-    cout << num1 << " + " << num2 << " = " << result << endl;
-    // sayHello();
-    // sayGoodbye();
+    // cout << "num1: " << num1 << " num2: " << num2 << endl;
+    num1 = 42;
+    num2 = 15;
+    cout << "In main: &num1: " << &num1 << endl;
+    cout << "In main: &num2: " << &num2 << endl;
+    printNums(num1, num2);
+    cout << "In main: num1: " << num1 << " num2: " << num2 << endl; 
+
     return 0;
 }
 
-template <class T1, class T2, class T3>
-T1 addNums(T2 n1, T3 n2)
+// void getNums(int& n1, int& n2)
+// {
+//     cout << "Enter two numbers separated by a space: ";
+//     cin >> n1 >> n2;
+// }
+
+void printNums(int& bob, int& steve)
 {
-    return n1 + n2;
+    cout << "In func: &num1: " << &bob << endl;
+    cout << "In func: &num2: " << &steve << endl;
+    bob = 1000;
+    steve = 2000;
+    cout << "In func: num1: " << bob << " num2: " << steve << endl; 
 }
+
+
+
+
+
+
+    // float num1;
+    // int num2;
+    // float result;
+
+    // cout << "Enter two numbers separated by a space: ";
+    // cin >> num1 >> num2;
+
+    // result = addNums<float, float, int>(num1, num2);
+    // cout << num1 << " + " << num2 << " = " << result << endl;
+    // sayHello();
+    // sayGoodbye();
+// template <class T1, class T2, class T3>
+// T1 addNums(T2 n1, T3 n2)
+// {
+//     return n1 + n2;
+// }
 
 // int addNums(int n1, int n2)
 // {
