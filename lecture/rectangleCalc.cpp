@@ -27,9 +27,11 @@ string promptName();
 void greetUser(string);
 
 // Prompt for side1 and side2 (float)
-float getSide();
+template <class T1, typename T2>
+void getSides(T1&, T2&);
 // Calc perimeter <perim = 2(side1 + side2)>
-float calcPerim(float, float);
+template <class T1, class T2>
+T1 calcPerim(T1, T2);
 // Calc area <area = side1 * side2>
 float calcArea(float, float);
 // Print out results
@@ -39,18 +41,19 @@ void test();
 
 int main()
 {
-    test();
+    // test();
     string name;
-    float side1, side2;
+    int side1, side2;
     float perim, area;
 
     name = promptName();
     greetUser(name);
 
-    side1 = getSide();
-    side2 = getSide();
+    // side1 = getSide();
+    // side2 = getSide();
+    getSides<int, int>(side1, side2);
 
-    perim = calcPerim(side1, side2);
+    perim = calcPerim<int, int>(side1, side2);
     area = calcArea(side1, side2);
 
     printResults(area, perim, side1, side2);
@@ -94,19 +97,25 @@ void greetUser(string name)
 }
 
 // Prompt for side1 and side2 (float)
-float getSide()
+//float getSide()
+template <class T1, typename T2>
+void getSides(T1& s1, T2& s2)
 {
-    float side;
+    cout << "Please enter the sides of the rectangle separated by a space: ";
+    cin >> s1 >> s2;
 
-    cout << "Please enter a side of the rectangle: ";
-    cin >> side;
+    // float side;
 
-    return side;
+    // cout << "Please enter a side of the rectangle: ";
+    // cin >> side;
+
+    // return side;
 }
 // Calc perimeter <perim = 2(side1 + side2)>
-float calcPerim(float s1, float s2)
+template <class T1, class T2>
+T1 calcPerim(T1 s1, T2 s2)
 {
-    float perim;
+    T1 perim;
     perim = 2*(s1 + s2);
     return perim;
 }
@@ -120,5 +129,11 @@ float calcArea(float s1, float s2)
 // Print out results
 void printResults(float area, float perim, float side1, float side2)
 {
-    printf("The rectangle with sides %.2f and %.2f, has an area of %.2f and a perimeter of %.2f\n", side1, side2, area, perim);
+    cout << "The rectangle with sides "
+         << side1 << " and " << side2
+         << ", has an area of "
+         << area
+         << " and a perimeter of "
+         << perim << endl;
+    // printf("The rectangle with sides %.2f and %.2f, has an area of %.2f and a perimeter of %.2f\n", side1, side2, area, perim);
 }

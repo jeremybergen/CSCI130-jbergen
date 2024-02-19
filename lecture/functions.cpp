@@ -38,6 +38,8 @@ int main()
     printNums(num1, num2);
     cout << "In main: num1: " << num1 << " num2: " << num2 << endl; 
 
+    cout << "This is a string with a \"" << endl;
+
     return 0;
 }
 
