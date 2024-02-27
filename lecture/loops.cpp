@@ -4,18 +4,74 @@ Name: Jeremy Bergen
 Loops again, and again, and again, and again, and....
 */
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
+bool checkNumber(int);
+
 int main()
 {
-    int someNumber;
+    // int someNumber = 0;
 
-    do
+    // while(true)
+    // while(1)
+    // while(false)
+    // while(checkNumber(someNumber))
+    // {
+    //     cout << "Enter a number between 1 and 20: ";
+    //     cin >> someNumber;
+    // }
+
+    // for(int i = 0, j = 10; i < 10 && j > 0; i++, j--)
+    // {
+    //     cout << i + j << " ";
+    // }
+    for(int i = 0; i < 10; i++)
     {
-        cout << "Enter a number between 1 and 20: ";
-        cin >> someNumber;
-    } while (someNumber < 1 || someNumber > 20);
+        for(int j = 10; j > 0; j--)
+        {
+            cout << i + j << " ";
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
+
+bool checkNumber(int number)
+{
+    if(number < 1 || number > 20)
+    {
+        return true;
+    }
+    else if(number == 5)
+    {
+        return true;
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // do
+    // {
+    //     cout << "Enter a number between 1 and 20: ";
+    //     cin >> someNumber;
+    // } while (someNumber < 1 || someNumber > 20);
+
+
     
     // int counter = 0;
     // do
@@ -104,7 +160,7 @@ int main()
     //     // // cin.get();
     // }
 
-    cout << "after for loop" << endl;
+    // cout << "after for loop" << endl;
 
     // cout << someNumber;
     // cout << "Hello World" << endl;
@@ -117,5 +173,3 @@ int main()
     // cout << "Hello Whirld" << endl;
     // cout << "Hello Whirld" << endl;
     // cout << "Hello Whirld" << endl;
-    return 0;
-}
