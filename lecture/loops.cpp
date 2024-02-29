@@ -5,6 +5,7 @@ Loops again, and again, and again, and again, and....
 */
 #include <iostream>
 #include <cmath>
+#include <cstdio>
 
 using namespace std;
 
@@ -31,10 +32,12 @@ int main()
     {
         for(int j = 10; j > 0; j--)
         {
-            cout << i + j << " ";
+            // cout << i + j << " ";
+            printf("The number is: %d ", i+j);
         }
     }
-    cout << endl;
+    // cout << endl;
+    printf("\n");
 
     return 0;
 }
