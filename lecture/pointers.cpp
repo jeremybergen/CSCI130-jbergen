@@ -8,39 +8,92 @@ Pointers!!!!!!!!!!!!!!
 
 using namespace std;
 
-void addNums(int**, int**);
-
-int main()
+int main(int argc, char* argv[])
 {
-    int n1, n2;
-    int* ptr1;
-    int* ptr2;
+    if(argc > 1 && (string)argv[1] == "test")
+    {
+        cout << "Run test function" << endl;
+        return 0;
+    }
 
-    ptr1 = &n1;
-    ptr2 = &n2;
-
-    cout << "Enter two numbers: ";
-    cin >> *ptr1 >> *ptr2;
-
-    cout << "ptr1: " << ptr1 << endl;
-    cout << "ptr2: " << ptr2 << endl;
-    addNums(&ptr1, &ptr2);
-
-    cout << "n1: " << n1 << endl;
-    cout << "n2: " << n2 << endl;
+    cout << "NOT RUNNING TESTS" << endl;
+    // cout << "argc: " << argc << endl;
+    // for(int i = 0; i < argc; i++)
+    // {
+    //     cout << "argv[" << i << "]: " << argv[i] << endl;
+    // }
+    // cout << "argv[0]: " << argv[0] << endl;
+    // cout << "argv[1]: " << argv[1] << endl;
+    // cout << "argv[2]: " << argv[2] << endl;
+    // cout << "argv[3]: " << argv[3] << endl;
     return 0;
 }
 
-void addNums(int** num1, int** num2)
-{
-    cout << "num1: " << num1 << endl;
-    cout << "num2: " << num2 << endl;
-    cout << **num1 << " + " << **num2 << " = " 
-         << **num1 + **num2 << endl;
 
-    **num1 = 9000;
-    **num2 = 10000;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// void addNums(int**, int**);
+
+//     // int* numbers[10];
+//     // for(int i = 0; i < 10; i++)
+//     // {
+//     //     // int *number1 = new int;
+//     //     // int *number1;
+//     //     // number1 = new int;
+//     //     // numbers[i] = number1;
+
+//     //     numbers[i] = new int;
+//     // }
+
+//     // for(int i = 0; i < 10; i++)
+//     // {
+//     //     cout << *numbers[i];
+//     // }
+
+//     int n1, n2;
+//     int* ptr1;
+//     int* ptr2;
+
+//     ptr1 = &n1;
+//     ptr2 = &n2;
+
+//     cout << "Enter two numbers: ";
+//     cin >> *ptr1 >> *ptr2;
+
+//     cout << "ptr1: " << ptr1 << endl;
+//     cout << "ptr2: " << ptr2 << endl;
+//     addNums(&ptr1, &ptr2);
+
+//     cout << "n1: " << n1 << endl;
+//     cout << "n2: " << n2 << endl;
+//     return 0;
+// }
+
+// void addNums(int** num1, int** num2)
+// {
+//     cout << "num1: " << num1 << endl;
+//     cout << "num2: " << num2 << endl;
+//     cout << **num1 << " + " << **num2 << " = " 
+//          << **num1 + **num2 << endl;
+
+//     **num1 = 9000;
+//     **num2 = 10000;
+// }
 
 
 
