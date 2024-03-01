@@ -8,26 +8,73 @@ Pointers!!!!!!!!!!!!!!
 
 using namespace std;
 
+void addNums(int**, int**);
+
 int main()
 {
-    int* num1;
-    num1 = new int;
-    string* str1 = new string;
-    long* long1 = new long(8888888888);
+    int n1, n2;
+    int* ptr1;
+    int* ptr2;
 
-    *num1 = 42;
-    cout << "&num1:\t" << &num1 << endl;
-    cout << "num1:\t" << num1 << endl;
-    cout << "*num1:\t" << *num1 << endl;
+    ptr1 = &n1;
+    ptr2 = &n2;
 
-    *str1 = "Jeremy";
-    cout << "&str1:\t" << &str1 << endl;
-    cout << "str1:\t" << str1 << endl;
-    cout << "*str:\t" << *str1 << endl;
+    cout << "Enter two numbers: ";
+    cin >> *ptr1 >> *ptr2;
 
-    cout << "&long1:\t" << &long1 << endl;
-    cout << "long1:\t" << long1 << endl;
-    cout << "*long1:\t" << *long1 << endl;
+    cout << "ptr1: " << ptr1 << endl;
+    cout << "ptr2: " << ptr2 << endl;
+    addNums(&ptr1, &ptr2);
+
+    cout << "n1: " << n1 << endl;
+    cout << "n2: " << n2 << endl;
+    return 0;
+}
+
+void addNums(int** num1, int** num2)
+{
+    cout << "num1: " << num1 << endl;
+    cout << "num2: " << num2 << endl;
+    cout << **num1 << " + " << **num2 << " = " 
+         << **num1 + **num2 << endl;
+
+    **num1 = 9000;
+    **num2 = 10000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // int* num1;
+    // num1 = new int;
+    // string* str1 = new string;
+    // long* long1 = new long(8888888888);
+
+    // *num1 = 42;
+    // cout << "&num1:\t" << &num1 << endl;
+    // cout << "num1:\t" << num1 << endl;
+    // cout << "*num1:\t" << *num1 << endl;
+
+    // *str1 = "Jeremy";
+    // cout << "&str1:\t" << &str1 << endl;
+    // cout << "str1:\t" << str1 << endl;
+    // cout << "*str:\t" << *str1 << endl;
+
+    // cout << "&long1:\t" << &long1 << endl;
+    // cout << "long1:\t" << long1 << endl;
+    // cout << "*long1:\t" << *long1 << endl;
 
     // int* numbers;
     // numbers = new int[1000000000];
@@ -111,22 +158,9 @@ int main()
     // *ptr1 = "Bergen";
     // cout << "myString: " << myString << endl;
     // cout << "*ptr1: " << *ptr1 << endl;
-    delete num1;
-    delete str1;
-    delete long1;
-    return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
+    // delete num1;
+    // delete str1;
+    // delete long1;
 
 
 
