@@ -7,35 +7,153 @@ Arrays!!!
 
 using namespace std;
 
-int addNums(int*, int);
+bool isWinner(char[][3], size_t);
+void printBoard(char[][3], size_t);
 
 int main(int argc, char* argv[])
 {
-    // int moreNumbers[10];
-    int arrSize = 5;
-    cout << "Enter an array size: ";
-    cin >> arrSize;
-    int* heapNums = new int[arrSize];
-    // int numbers[] = {42, 15, 23, 9000, -1};
+    // size_t arrSize = 0;
+    // size_t innerArray = 0;
+    // cout << "What is the array size: ";
+    // cin >> arrSize;
+
+    // cout << "What is the inner array size: ";
+    // cin >> innerArray;
+    // int board[arrSize][innerArray];
+
+    char board[3][3];
 
 
-    cout << "&heapNums: " << &heapNums << endl;
-    for(size_t i = 0; i < 5; i++)
+
+    for(size_t i = 0; i < 3; i++)
     {
-        cout << "&heapNums[" << i << "]: " << &heapNums[i] << endl;
+        for(size_t j = 0; j < 3; j++)
+        {
+            board[i][j] = ' ';
+        }
     }
 
-    // for(size_t i = 0; i < 10; i++)
+    // board[0][1] = 42;
+    // board[0][0] = 'X';
+    // board[1][1] = 'O';
+    // board[2][2] = 'X';
+    // board[0][2] = 'O';
+    // board[2][0] = 'X';
+    // board[2][0] = 'O';
+    cout << "stage 0: " << endl;
+    board[0][0] = 'O';
+    printBoard(board, 3);
+
+    cout << "stage 1: " << endl;
+    board[0][1] = 'O';
+    printBoard(board, 3);
+
+    cout << "stage 2: " << endl;
+    board[0][2] = 'O';
+    printBoard(board, 3);
+    
+    cout << boolalpha << isWinner(board, 3) << endl;
+
+
+
+
+
+    // for(size_t i = 0; i < arrSize; i++)
     // {
-    //     cout << "Please enter a number: ";
-    //     cin >> *(heapNums + i);
+    //     for(size_t j = 0; j < innerArray; j++)
+    //     {
+    //         cout << "&board[" << i << "][" << j << "]: "
+    //                 << &board[i][j] << endl;
+    //     }
+    // }
+    return 0;
+}
+
+void printBoard(char board[][3], size_t boardSize)
+{
+
+    for(size_t i = 0; i < boardSize; i++)
+    {
+        cout << "   ";
+        for(size_t j = 0; j < boardSize; j++)
+        {
+            cout << board[i][j];
+            if(j != 2)
+            {
+                cout << "|";
+            }
+        }
+        
+        cout << endl;
+        if(i != 2)
+        {
+            cout << "   -----" << endl;
+        }
+    }
+}
+
+bool isWinner(char board[][3], size_t boardSize)
+{
+    //row winner
+    for(size_t i = 0; i < boardSize; i++)
+    {
+        if(board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+        {
+            return true;
+        }
+    }
+
+    //column winner
+    for(size_t i = 0; i < boardSize; i++)
+    {
+        // if(board[0][i] == board[0][i] && board[0][i] == board[i][2])
+        if(board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // // int moreNumbers[10];
+    // int arrSize = 5;
+    // cout << "Enter an array size: ";
+    // cin >> arrSize;
+    // int* heapNums = new int[arrSize];
+    // // int numbers[] = {42, 15, 23, 9000, -1};
+
+
+    // cout << "&heapNums: " << &heapNums << endl;
+    // for(size_t i = 0; i < 5; i++)
+    // {
+    //     cout << "&heapNums[" << i << "]: " << &heapNums[i] << endl;
     // }
 
-    for(size_t i = 0; i < 5; i++)
-    {
-        cout << *(heapNums + i) << " ";
-    }
-    cout << endl;
+    // // for(size_t i = 0; i < 10; i++)
+    // // {
+    // //     cout << "Please enter a number: ";
+    // //     cin >> *(heapNums + i);
+    // // }
+
+    // for(size_t i = 0; i < 5; i++)
+    // {
+    //     cout << *(heapNums + i) << " ";
+    // }
+    // cout << endl;
 
     // int* ptr;
     // size_t arrSize = 5;
@@ -68,22 +186,22 @@ int main(int argc, char* argv[])
     // cout << &numbers[3] << endl;
     // cout << &numbers[4] << endl;
 
-    delete[] heapNums;
-    return 0;
-}
+    // delete[] heapNums;
 
-int addNums(int* numbers, int arrSize)
-{
-    cout << sizeof(numbers) << endl;
-    int sum = 0;
-    for(int i = 0; i < arrSize; i++)
-    {
-        // sum += *(numbers + i);
-        // sum = sum + *(numbers + i);
-        sum = sum + numbers[i];
-    }
-    return sum;
-}
+// int addNums(int*, int);
+
+// int addNums(int* numbers, int arrSize)
+// {
+//     cout << sizeof(numbers) << endl;
+//     int sum = 0;
+//     for(int i = 0; i < arrSize; i++)
+//     {
+//         // sum += *(numbers + i);
+//         // sum = sum + *(numbers + i);
+//         sum = sum + numbers[i];
+//     }
+//     return sum;
+// }
 
 
 
