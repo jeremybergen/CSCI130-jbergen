@@ -7,114 +7,184 @@ Arrays!!!
 
 using namespace std;
 
-bool isWinner(char[][3], size_t);
-void printBoard(char[][3], size_t);
+void printArray(int[], int);
 
 int main(int argc, char* argv[])
 {
-    // size_t arrSize = 0;
-    // size_t innerArray = 0;
-    // cout << "What is the array size: ";
-    // cin >> arrSize;
+    int arrSize;
+    cout << "Please enter the number of numbers: ";
+    cin >> arrSize;
+    int numbers[arrSize];
 
-    // cout << "What is the inner array size: ";
-    // cin >> innerArray;
-    // int board[arrSize][innerArray];
-
-    char board[3][3];
-
-
-
-    for(size_t i = 0; i < 3; i++)
+    for(int i = 0; i < arrSize; i++)
     {
-        for(size_t j = 0; j < 3; j++)
-        {
-            board[i][j] = ' ';
-        }
+        cout << "Enter a number: ";
+        cin >> numbers[i];
     }
+    printArray(numbers, arrSize);
 
-    // board[0][1] = 42;
-    // board[0][0] = 'X';
-    // board[1][1] = 'O';
-    // board[2][2] = 'X';
-    // board[0][2] = 'O';
-    // board[2][0] = 'X';
-    // board[2][0] = 'O';
-    cout << "stage 0: " << endl;
-    board[0][0] = 'O';
-    printBoard(board, 3);
+    int counter = 0;
+    for(int j = 0; j < arrSize - 1; j++)
+    {
+        bool swapped = false;
+        for(int i = 0; i < arrSize - 1 - j; i++)
+        {
+            if(numbers[i] > numbers[i+1])
+            {
+                //swap
+                int tmpNum = numbers[i];
+                numbers[i] = numbers[i+1];
+                numbers[i+1] = tmpNum;
+                swapped = true;
+            }
+            printArray(numbers, arrSize);
+            counter++;
+        }
+        if(!swapped)
+        {
+            break;
+        }
+        
+    }
+    printArray(numbers, arrSize);
+    cout << "counter: " << counter << endl;
 
-    cout << "stage 1: " << endl;
-    board[0][1] = 'O';
-    printBoard(board, 3);
-
-    cout << "stage 2: " << endl;
-    board[0][2] = 'O';
-    printBoard(board, 3);
-    
-    cout << boolalpha << isWinner(board, 3) << endl;
-
-
-
-
-
-    // for(size_t i = 0; i < arrSize; i++)
-    // {
-    //     for(size_t j = 0; j < innerArray; j++)
-    //     {
-    //         cout << "&board[" << i << "][" << j << "]: "
-    //                 << &board[i][j] << endl;
-    //     }
-    // }
     return 0;
 }
 
-void printBoard(char board[][3], size_t boardSize)
+void printArray(int numbers[], int arrSize)
 {
-
-    for(size_t i = 0; i < boardSize; i++)
+    for(int i = 0; i < arrSize; i++)
     {
-        cout << "   ";
-        for(size_t j = 0; j < boardSize; j++)
-        {
-            cout << board[i][j];
-            if(j != 2)
-            {
-                cout << "|";
-            }
-        }
-        
-        cout << endl;
-        if(i != 2)
-        {
-            cout << "   -----" << endl;
-        }
+        cout << numbers[i] << " ";
     }
+    cout << endl;
 }
 
-bool isWinner(char board[][3], size_t boardSize)
-{
-    //row winner
-    for(size_t i = 0; i < boardSize; i++)
-    {
-        if(board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
-        {
-            return true;
-        }
-    }
 
-    //column winner
-    for(size_t i = 0; i < boardSize; i++)
-    {
-        // if(board[0][i] == board[0][i] && board[0][i] == board[i][2])
-        if(board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
-        {
-            return true;
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// bool isWinner(char[][3], size_t);
+// void printBoard(char[][3], size_t);
+
+// int main(int argc, char* argv[])
+// {
+//     // size_t arrSize = 0;
+//     // size_t innerArray = 0;
+//     // cout << "What is the array size: ";
+//     // cin >> arrSize;
+
+//     // cout << "What is the inner array size: ";
+//     // cin >> innerArray;
+//     // int board[arrSize][innerArray];
+
+//     char board[3][3];
+
+
+
+//     for(size_t i = 0; i < 3; i++)
+//     {
+//         for(size_t j = 0; j < 3; j++)
+//         {
+//             board[i][j] = ' ';
+//         }
+//     }
+
+//     // board[0][1] = 42;
+//     // board[0][0] = 'X';
+//     // board[1][1] = 'O';
+//     // board[2][2] = 'X';
+//     // board[0][2] = 'O';
+//     // board[2][0] = 'X';
+//     // board[2][0] = 'O';
+//     cout << "stage 0: " << endl;
+//     board[0][0] = 'O';
+//     printBoard(board, 3);
+
+//     cout << "stage 1: " << endl;
+//     board[0][1] = 'O';
+//     printBoard(board, 3);
+
+//     cout << "stage 2: " << endl;
+//     board[0][2] = 'O';
+//     printBoard(board, 3);
     
-    return false;
-}
+//     cout << boolalpha << isWinner(board, 3) << endl;
+
+
+
+
+
+//     // for(size_t i = 0; i < arrSize; i++)
+//     // {
+//     //     for(size_t j = 0; j < innerArray; j++)
+//     //     {
+//     //         cout << "&board[" << i << "][" << j << "]: "
+//     //                 << &board[i][j] << endl;
+//     //     }
+//     // }
+//     return 0;
+// }
+
+// void printBoard(char board[][3], size_t boardSize)
+// {
+
+//     for(size_t i = 0; i < boardSize; i++)
+//     {
+//         cout << "   ";
+//         for(size_t j = 0; j < boardSize; j++)
+//         {
+//             cout << board[i][j];
+//             if(j != 2)
+//             {
+//                 cout << "|";
+//             }
+//         }
+        
+//         cout << endl;
+//         if(i != 2)
+//         {
+//             cout << "   -----" << endl;
+//         }
+//     }
+// }
+
+// bool isWinner(char board[][3], size_t boardSize)
+// {
+//     //row winner
+//     for(size_t i = 0; i < boardSize; i++)
+//     {
+//         if(board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+//         {
+//             return true;
+//         }
+//     }
+
+//     //column winner
+//     for(size_t i = 0; i < boardSize; i++)
+//     {
+//         // if(board[0][i] == board[0][i] && board[0][i] == board[i][2])
+//         if(board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+//         {
+//             return true;
+//         }
+//     }
+    
+//     return false;
+// }
 
 
 
