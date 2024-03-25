@@ -7,59 +7,115 @@ Arrays!!!
 
 using namespace std;
 
-void printArray(int[], int);
-
 int main(int argc, char* argv[])
 {
-    int arrSize;
-    cout << "Please enter the number of numbers: ";
-    cin >> arrSize;
-    int numbers[arrSize];
+    int* someNumbers = new int[5];
+    int numbers[5] = {10, 20, 30, 40, 50};
 
-    for(int i = 0; i < arrSize; i++)
+    //REALLY REALLY BAD!!!
+    for(int i = 0; i < 10; i++)
     {
-        cout << "Enter a number: ";
-        cin >> numbers[i];
+        cout << someNumbers[i] << " ";
+        // numbers[i] = 100;
     }
-    printArray(numbers, arrSize);
+    cout << endl;
+    // int* num1 = new int;
+    // char* someChar = new char;
+    // int numbers[5] = {10, 20, 30, 40, 50};
+    // int moreNumbers[5];
+    // int evenMoreNumbers[5][5][5] = {{{10}, {20}, 30, 40, 50}, {60, 70, 80, 90, 100}, {}, {}, {}};
+    // // int* moreNumbers;
 
-    int counter = 0;
-    for(int j = 0; j < arrSize - 1; j++)
-    {
-        bool swapped = false;
-        for(int i = 0; i < arrSize - 1 - j; i++)
-        {
-            if(numbers[i] > numbers[i+1])
-            {
-                //swap
-                int tmpNum = numbers[i];
-                numbers[i] = numbers[i+1];
-                numbers[i+1] = tmpNum;
-                swapped = true;
-            }
-            printArray(numbers, arrSize);
-            counter++;
-        }
-        if(!swapped)
-        {
-            break;
-        }
-        
-    }
-    printArray(numbers, arrSize);
-    cout << "counter: " << counter << endl;
+    // for(int i = 0; i < 5; i++)
+    // {
+    //     moreNumbers[i] = numbers[i];
+    // }
+
+    // // moreNumbers = numbers;
+    // // int* ptr;
+
+    // // ptr = &numbers[0];
+    // // ptr = numbers;
+
+    // for(int i = 0; i < 5; i++)
+    // {
+    //     // cout << *(numbers + i) << " ";
+    //     // cout << numbers[i] << " ";
+    //     // cout << *ptr << " ";
+
+    //     // ptr++;
+    // }
+    // cout << endl;
+
+    delete[] someNumbers;
 
     return 0;
 }
 
-void printArray(int numbers[], int arrSize)
-{
-    for(int i = 0; i < arrSize; i++)
-    {
-        cout << numbers[i] << " ";
-    }
-    cout << endl;
-}
+
+
+
+
+
+
+
+
+
+
+
+// void printArray(int[], int);
+
+// int main(int argc, char* argv[])
+// {
+//     int arrSize;
+//     cout << "Please enter the number of numbers: ";
+//     cin >> arrSize;
+//     int numbers[arrSize];
+
+//     for(int i = 0; i < arrSize; i++)
+//     {
+//         cout << "Enter a number: ";
+//         cin >> numbers[i];
+//     }
+//     printArray(numbers, arrSize);
+
+//     int counter = 0;
+//     for(int j = 0; j < arrSize - 1; j++)
+//     {
+//         bool swapped = false;
+//         for(int i = 0; i < arrSize - 1 - j; i++)
+//         {
+//             if(numbers[i] > numbers[i+1])
+//             {
+//                 //swap
+//                 int tmpNum = numbers[i];
+//                 numbers[i] = numbers[i+1];
+//                 numbers[i+1] = tmpNum;
+//                 swapped = true;
+//             }
+//             printArray(numbers, arrSize);
+//             counter++;
+//         }
+//         if(!swapped)
+//         {
+//             break;
+//         }
+        
+//     }
+//     printArray(numbers, arrSize);
+//     cout << "counter: " << counter << endl;
+
+//     return 0;
+// }
+
+// void printArray(int numbers[], int arrSize)
+// {
+//     for(int i = 0; i < arrSize; i++)
+//     {
+//         cout << numbers[i] << " ";
+//     }
+//     cout << endl;
+// }
 
 
 
