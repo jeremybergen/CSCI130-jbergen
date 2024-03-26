@@ -14,10 +14,54 @@ int main(int argc, char* argv[])
 
     fName = fName + " Bergen";
     // fName += " Bergen";
-    fName.append(" Bergen");
-    fName.append(" The Almighty Tallest");
-    cout << "fName: " << fName << endl;
+    // fName.append(" Bergen");
+    // fName.append(" The Almighty Tallest");
+    // cout << "fName: " << fName << endl;
 
+    cout << fName << endl;
+    int insertPos = 7;
+    fName.insert(insertPos, "The Greatest ");
+    cout << fName << endl;
+
+    for(size_t i = 0; i < fName.length(); i++)
+    {
+
+        size_t spaceIdx = fName.find(' ', i);
+        
+        // if(i == 0)
+        // {
+        //     spaceIdx2 = 0;
+        // }
+
+        cout << "substring: " << fName.substr(i, spaceIdx - i) << endl;
+        i += (spaceIdx - i);
+        if(spaceIdx == string::npos)
+        {
+            break;
+        }
+        // cout << "DEBUG: spaceIdx: " << spaceIdx << endl;
+        // cout << "DEBUG: i: " << i << endl;
+        // if(i != )
+        // {
+        //     break;
+        // }
+    }
+    // cout << fName.find(' ') << endl;
+    // int spaceIdx = fName.find(' ');
+    // int spaceIdx2;
+    // cout << fName.substr(0, spaceIdx) << endl;
+
+    // spaceIdx2 = fName.find(' ', spaceIdx + 1);
+    // // cout << "DEBUG: spaceIdx2: " << spaceIdx2 << endl;
+    // cout << fName.substr(spaceIdx + 1, spaceIdx2 - spaceIdx) << endl;
+
+
+    // string firstName = fName.substr(0, 6);
+    // string title = fName.substr(7, 13);
+    // string lName = fName.substr(20);
+    // cout << "firstName: " << firstName << endl;
+    // cout << "title: " << title << endl;
+    // cout << "lName: " << lName << endl;
     // cout << fName.front() << endl;
 
     // for(size_t i = 0; i < fName.length(); i++)
