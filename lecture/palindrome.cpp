@@ -14,6 +14,8 @@ Palindrome checker
 */
 #include <string>
 #include <iostream>
+#include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -22,9 +24,25 @@ void greetName(string);
 void getString(string&);
 bool checkPalin(string);
 string sanitizeString(string);
+void tests();
+
+template <class T1, class T2>
+T1 addNums(T1, T2);
+
 
 int main(int argc, char* argv[])
 {
+    // cout << "argc: " << argc << endl;
+    // for(int i = 0; i < argc; i++)
+    // {
+    //     cout << "argv[" << i << "]: " << argv[i] << endl;
+    // }
+
+    if(argc == 2 && (string)argv[1] == "test")
+    {
+        tests();
+        return 0;
+    }
     // string cleanStr;
     string inputStr;
     string name;
@@ -48,8 +66,33 @@ int main(int argc, char* argv[])
     // {
     //     cout << "The string is NOT a palindrome." << endl;
     // }
-    
+
     return 0;
+}
+
+template <class T1, class T2>
+T1 addNums(T1 n1, T2 n2)
+{
+    return n1 + n2;
+}
+
+void tests()
+{
+    assert(sanitizeString("TACOCAT") == "tacocat");
+
+    string result = sanitizeString("A man, a plan, a canal, Panama");
+    string expected = "amanaplanacanalpanama";
+    assert(result == expected);
+
+    result = sanitizeString("abcdefGHIJihgfedcba");
+    expected = "abcdefghijihgfedcba";
+    assert(result == expected);
+
+    assert(checkPalin("TACOCAT") == true);
+    assert(checkPalin("Jeremy") == false);
+    assert(checkPalin("A man, a plan, a canal, Panama") == true);
+
+    cerr << "All test cases passed" << endl;
 }
 
 string sanitizeString(string inputString)
@@ -65,7 +108,7 @@ string sanitizeString(string inputString)
             cleanString += (char)tolower(ch);
         }
     }
-    cout << "DEBUG: inputString: " << inputString << " cleanString: " << cleanString << endl;
+    // cout << "DEBUG: inputString: " << inputString << " cleanString: " << cleanString << endl;
     return cleanString;
 }
 
@@ -83,8 +126,8 @@ bool checkPalin(string inputString)
         if(tolower(cleanStr.at(i)) != tolower(*(cleanStr.rbegin() + i)))
         // if(tolower(inputString.at(i)) != tolower(inputString.at(inputString.length() - 1 - i)))
         {
-            cout << "DEBUG: these characters do not match: "
-                 << cleanStr.at(i) << " " << *(cleanStr.rbegin() + i) << endl;
+            // cout << "DEBUG: these characters do not match: "
+            //      << cleanStr.at(i) << " " << *(cleanStr.rbegin() + i) << endl;
             return false;
         }
     }
