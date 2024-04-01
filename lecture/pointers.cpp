@@ -10,13 +10,21 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    if(argc > 1 && (string)argv[1] == "test")
-    {
-        cout << "Run test function" << endl;
-        return 0;
-    }
+    int numbers[10] = {42, 15, 23, 9000, -1, 4, 8, 8, 9, 10};
+    int* heapNumbers = new int[10];
 
-    cout << "NOT RUNNING TESTS" << endl;
+    int* numberPointers[10];
+    numberPointers[0] = &numbers[0];
+
+
+    delete[] heapNumbers;
+    // if(argc > 1 && (string)argv[1] == "test")
+    // {
+    //     cout << "Run test function" << endl;
+    //     return 0;
+    // }
+
+    // cout << "NOT RUNNING TESTS" << endl;
     // cout << "argc: " << argc << endl;
     // for(int i = 0; i < argc; i++)
     // {
