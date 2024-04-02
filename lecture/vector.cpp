@@ -22,10 +22,10 @@ int main(int argc, char* argv[])
     // }
 
     vector<int> myVec({42, 15, 23, 9000, -1, 5});
-    vector<int> myVec2;
+    // vector<int>* myVec2 = new vector<int>();
     vector<string> myStrings;
 
-    myVec2 = myVec;
+    // myVec2 = myVec;
 
 
 
@@ -37,16 +37,21 @@ int main(int argc, char* argv[])
     cout << "myVec.size(): " << myVec.size() << endl;
     cout << "myVec.capcity(): " << myVec.capacity() << endl;
 
-    for(size_t i = 0; i < myVec.size(); i++)
-    {
-        // cout << myVec.at(i) << " ";
-        cout << myVec[i] << " ";
-    }
+    // for(size_t i = 0; i < myVec.size(); i++)
+    // {
+    //     // cout << myVec.at(i) << " ";
+    //     cout << myVec[i] << " ";
+    // }
 
     // for(auto item : myVec)
     // {
     //     cout << item << " ";
     // }
+    cout << "Printing out vector" << endl;
+    for(auto it = myVec.rbegin(); it != myVec.rend(); it++)
+    {
+        cout << *it << " ";
+    }
     cout << endl;
 
     cout << myVec.front() << " " << myVec.back() << endl;
