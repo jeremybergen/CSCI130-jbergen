@@ -12,7 +12,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
     // string fName, lName, title, color;
-    string lines[3][4];
+    string lines[3][5];
     string inputLine;
     ifstream fin;
 
