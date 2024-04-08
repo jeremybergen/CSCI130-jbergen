@@ -5,6 +5,7 @@ File I/O
 */
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -18,14 +19,58 @@ int main(int argc, char* argv[])
     fin.open("files/input.csv");
 
     int rowNumber = 0;
-    int colNumber = 0;
+    
     while(getline(fin, inputLine))
     {
-        cout << "DEBUG: " << inputLine << endl;
+        int colNumber = 0;
+        // cout << "DEBUG: " << inputLine << endl;
         // Jeremy,Bergen,Assistant Professor of Computer Science,Red
-        cout << "DEBUG: : " << inputLine.find(',') << endl;
-        lines[rowNumber][colNumber] = 
+        istringstream iss;
+        iss.str(inputLine);
+        string token;
+        // iss >> token;
+        // cout << "DEBUG: token: " << token << endl;
+
+        while(getline(iss, token, ','))
+        {
+            lines[rowNumber][colNumber] = token;
+            colNumber++;
+        }
+
+
+
+        //string method:
+        // for(int i = 0; i < inputLine.length(); i++)
+        // {
+        //     // cout << "DEBUG: : " << inputLine.find(',') << endl;
+        //     size_t commaLoc = inputLine.find(',', i);
+        //     if(commaLoc == string::npos)
+        //     {
+        //         lines[rowNumber][colNumber] = inputLine.substr(i);
+        //         break;
+        //     }
+        //     // cout << "DEBUG: inputLine.substr(" << i << ", " << commaLoc - i << "): " 
+        //     //      << inputLine.substr(i, commaLoc - i) << endl;
+
+        //     lines[rowNumber][colNumber] = inputLine.substr(i, commaLoc - i);
+        //     // cout << "DEBUG: i: " << i << endl;
+        //     // cout << "DEBUG: lines[" << rowNumber << "][" << colNumber << "]: "
+        //     //      << lines[rowNumber][colNumber] << endl;
+        //     colNumber++;
+        //     i = commaLoc;
+
+            
+        // }
         rowNumber++;
+    }
+
+    for(int i = 0; i < rowNumber; i++)
+    {
+        for(int j = 0; j < 4; j++)
+        {
+            cout << lines[i][j] << "\t";
+        }
+        cout << endl;
     }
 
     fin.close();
