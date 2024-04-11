@@ -7,6 +7,7 @@ Structures
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -19,26 +20,92 @@ struct Person
     int favNumber;
 };
 
-string getFileName();
-void readData(ifstream&, Person[], int&);
-void printData(Person[], int);
-
-int main(int argc, char* argv[])
+struct FieldW
 {
+    size_t fName = 12;
+    size_t lName = 11;
+    size_t title = 7;
+    size_t fColor = 11;
+    size_t fNumber = 12;
+};
+
+string getFileName();
+void readData(ifstream &, Person[], int &, FieldW &);
+void printData(Person[], int, FieldW &);
+void writeData(ofstream &, Person[], int &, FieldW &);
+int countLines(ifstream &);
+
+int main(int argc, char *argv[])
+{
+    FieldW fieldWidths;
     ifstream fin;
+    ofstream fout;
+    int numPeople = 0;
     string fileName = getFileName();
     fin.open(fileName);
-    if(!fin.is_open())
+    if (!fin.is_open())
     {
         cout << "Invalid file" << endl;
         return 0;
     }
+
+    fout.open("files/output.txt");
+    
+    int numLines = countLines(fin);
+
+    Person people[numLines];
+
+    readData(fin, people, numPeople, fieldWidths);
+
+    printData(people, numPeople, fieldWidths);
+
+    writeData(fout, people, numPeople, fieldWidths);
+
+    fout.close();
+    fin.close();
+    return 0;
+}
+
+int countLines(ifstream &fin)
+{
+    // cout << "DEBUG: Flags: " << fin.rdstate() << endl;
+    int numLines = 0;
+    string tmpLine;
+    while(getline(fin, tmpLine))
+    {
+        numLines++;
+    }
+    fin.clear();
+    fin.seekg(0);
+    // cout << "DEBUG: numLines: " << numLines << endl;
+    // cout << "DEBUG: Flags: " << fin.rdstate() << endl;
+    // cout << (fin.rdstate() & ifstream::failbit) << endl;
+    return numLines;
+}
+
+void writeData(ofstream &fout, Person people[], int &numPeople, FieldW &fieldWidths)
+{
+    fout << left;
+    fout << setw(fieldWidths.fName) << "First Name"
+         << setw(fieldWidths.lName) << "Last Name"
+         << setw(fieldWidths.fColor) << "Fav Color"
+         << setw(fieldWidths.fNumber) << "Fav Number" << endl;
+    fout << setfill('-') << setw(fieldWidths.fName + fieldWidths.lName + fieldWidths.fColor + fieldWidths.fNumber) << "" << endl;
+    fout << setfill(' ');
+    for (int i = 0; i < numPeople; i++)
+    {
+        fout << setw(fieldWidths.fName) << people[i].fName
+             << setw(fieldWidths.lName) << people[i].lName
+             << setw(fieldWidths.fColor) << people[i].favColor
+             << setw(fieldWidths.fNumber) << people[i].favNumber << endl;
+    }
+}
+
+void readData(ifstream &fin, Person people[], int &numPeople, FieldW &fieldWidths)
+{
     string inputLine;
-    int numPeople = 0;
 
-    Person people[10];
-
-    while(getline(fin, inputLine))
+    while (getline(fin, inputLine))
     {
         // cout << "DEBUG: inputLine: " << inputLine << endl;
         istringstream iss;
@@ -46,23 +113,53 @@ int main(int argc, char* argv[])
         string token;
         int fieldNum = 0;
 
-        while(getline(iss, token, ','))
+        while (getline(iss, token, ','))
         {
-            if(fieldNum == 0) people[numPeople].fName = token;
-            if(fieldNum == 1) people[numPeople].lName = token;
-            if(fieldNum == 2) people[numPeople].title = token;
-            if(fieldNum == 3) people[numPeople].favColor = token;
-            if(fieldNum == 4) people[numPeople].favNumber = stoi(token);
+            if (fieldNum == 0)
+            {
+                people[numPeople].fName = token;
+                if (fieldWidths.fName < token.length() + 2)
+                {
+                    fieldWidths.fName = token.length() + 2;
+                }
+            }
+            if (fieldNum == 1)
+            {
+                people[numPeople].lName = token;
+                if (fieldWidths.lName < token.length() + 2)
+                {
+                    fieldWidths.lName = token.length() + 2;
+                }
+            }
+            if (fieldNum == 2)
+            {
+                people[numPeople].title = token;
+                if (fieldWidths.title < token.length() + 2)
+                {
+                    fieldWidths.title = token.length() + 2;
+                }
+            }
+            if (fieldNum == 3)
+            {
+                people[numPeople].favColor = token;
+                if (fieldWidths.fColor < token.length() + 2)
+                {
+                    fieldWidths.fColor = token.length() + 2;
+                }
+            }
+            if (fieldNum == 4)
+            {
+                people[numPeople].favNumber = stoi(token);
+                if (fieldWidths.fNumber < token.length() + 2)
+                {
+                    fieldWidths.fNumber = token.length() + 2;
+                }
+            }
 
             fieldNum++;
         }
         numPeople++;
     }
-
-    printData(people, numPeople);
-
-    fin.close();
-    return 0;
 }
 
 string getFileName()
@@ -73,37 +170,23 @@ string getFileName()
     return fileName;
 }
 
-void printData(Person people[], int numPeople)
+void printData(Person people[], int numPeople, FieldW &fieldWidths)
 {
-    for(int i = 0; i < numPeople; i++)
+    cout << left;
+    cout << setw(fieldWidths.fName) << "First Name"
+         << setw(fieldWidths.lName) << "Last Name"
+         << setw(fieldWidths.fColor) << "Fav Color"
+         << setw(fieldWidths.fNumber) << "Fav Number" << endl;
+    cout << setfill('-') << setw(fieldWidths.fName + fieldWidths.lName + fieldWidths.fColor + fieldWidths.fNumber) << "" << endl;
+    cout << setfill(' ');
+    for (int i = 0; i < numPeople; i++)
     {
-        cout << people[i].fName << "\t" 
-             << people[i].lName << "\t" 
-             << people[i].favColor << "\t" 
-             << people[i].favNumber << endl;
+        cout << setw(fieldWidths.fName) << people[i].fName
+             << setw(fieldWidths.lName) << people[i].lName
+             << setw(fieldWidths.fColor) << people[i].favColor
+             << setw(fieldWidths.fNumber) << people[i].favNumber << endl;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // struct MyData2
 // {
@@ -178,8 +261,8 @@ void printData(Person people[], int numPeople)
 
 //     // for(int i = 0; i < 5; i++)
 //     // {
-//     //     cout << dataGroup[i]->fName << "\t" 
-//     //          << dataGroup[i]->lName << "\t" 
+//     //     cout << dataGroup[i]->fName << "\t"
+//     //          << dataGroup[i]->lName << "\t"
 //     //          << dataGroup[i]->title << endl;
 //     // }
 

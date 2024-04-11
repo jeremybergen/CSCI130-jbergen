@@ -1,40 +1,8 @@
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
-numbers[0]: 0984321
-numbers[1]: 128390
-numbers[2]: 123
-numbers[3]: 133
-numbers[4]: 412
+First Name               Last Name       Fav Color   Fav Number  
+-----------------------------------------------------------------
+Jeremy                   Bergen          Red         42          
+Mike                     Kansgen         Green       2           
+Luke                     Skywalker       Blue/Green  8           
+Steve                    Jobs            Black       0           
+David                    Roethlisberger  Blue        11          
+John Jacob-Jingleheimer  Schmidt         Clear       1000392472  
