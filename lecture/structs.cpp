@@ -29,6 +29,17 @@ struct FieldW
     size_t fNumber = 12;
 };
 
+/// @brief tipType = 0: point
+///                  1: wedge
+///                  2: chisel
+struct Marker
+{
+    string color;
+    bool capOn = true;
+    float inkLevel = 100;
+    int tipType = 2;
+};
+
 string getFileName();
 void readData(ifstream &, Person[], int &, FieldW &);
 void printData(Person[], int, FieldW &);
@@ -38,6 +49,15 @@ int countLines(ifstream &);
 int main(int argc, char *argv[])
 {
     FieldW fieldWidths;
+    FieldW* heapFieldWidths = new FieldW;
+    Person somePerson;
+
+    fieldWidths.fName = 10;
+    (*heapFieldWidths).fName = 42;
+    heapFieldWidths->fName = 42;
+    somePerson.fName = "Jeremy";
+    somePerson.favNumber = 42;
+
     ifstream fin;
     ofstream fout;
     int numPeople = 0;
@@ -63,6 +83,8 @@ int main(int argc, char *argv[])
 
     fout.close();
     fin.close();
+
+    delete heapFieldWidths;
     return 0;
 }
 
